@@ -7,18 +7,19 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SettlementComponent } from './settlement/settlement.component';
+import { SettlementItemComponent } from './settlement/settlement-item/settlement-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    SettlementComponent
+    SettlementComponent,
+    SettlementItemComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule
-    // RouterModule.forRoot(routes, { useHash: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
