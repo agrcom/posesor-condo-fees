@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 import { SettlementItem }    from '../settlement-item';
+import {SettlementTypes} from "../settlement-types.enum";
 
 @Component({
   selector: 'app-settlement-item',
@@ -10,11 +11,24 @@ import { SettlementItem }    from '../settlement-item';
 })
 export class SettlementItemComponent implements OnInit {
 
-  constructor() { }
+   entry = new SettlementItem( '', 0, new Date(), 0);
 
-  removeEntry(){console.log("Clicked!!!")}
+   entries = [] as SettlementItem[];
+   // entry = "";
+  types= [  "Obciążenie",
+    "Płatność",
+    "Nadpłata"];
+
+  addEntry(value: SettlementItem) {
+    debugger;
+    console.log(value);
+    this.entries.push(value);
+  }
+
+  removeEntry(){console.log("Clicked!!!");}
 
   ngOnInit() {
   }
 
+  get diagnostic() { return JSON.stringify(this.entry); }
 }
