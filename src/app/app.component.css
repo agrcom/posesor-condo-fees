@@ -1,9 +1,9 @@
-h1 {
+/* h1 {
   font-size: 1.2em;
   color: #999;
   color: #555;
   margin-bottom: 0;
-}
+} */
 h2 {
   font-size: 2em;
   margin-top: 0;
@@ -27,3 +27,15 @@ nav a:hover {
 nav a.router-link-active {
   color: #039be5;
 }
+
+.navbar {
+     margin-bottom: 0;
+     border-radius: 0;
+ }
+
+ /* Set gray background color and 100% height */
+ .sidenav {
+   padding-top: 20px;
+   /* background-color: #f1f1f1; */
+   height: 100%;
+ }

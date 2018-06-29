@@ -1,9 +1,22 @@
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+<div class="collapse navbar-collapse" id="myNavbar">
+    <ul  class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a [routerLink]="['/settlement']">Settlement</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
 
-<nav>
-  <a [routerLink]="['/settlement']">Settlement</a>
-</nav>
-<router-outlet></router-outlet>
+  <div class="col-md-12 text-left">
+    <div style="text-align:center">
+        <h1>Witaj w {{ title }}</h1>
+        <p>Opis krótka instrukcja wprowadzania rozliczeń</p>
+    </div>
+  <hr>
+    <div style="text-align:center">
+      <h3>Rozliczenia</h3>
+    </div>
+      <router-outlet></router-outlet>
+    </div>

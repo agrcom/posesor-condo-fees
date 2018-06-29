@@ -1,5 +1,5 @@
   <!-- <table style="width:80%" class="form-group"> -->
-    {{diagnostic}}
+
     <!-- <div class="form-group">
       <label for="settelment_amount">Kwota</label>
       <input type="number" class="form-control"
@@ -48,10 +48,3 @@ this: {{entry}}   -->
       <th><br><button type="submit" class="btn btn-success" (click)="addEntry(entry)">Dodaj</button></th>
       <th><br><button type="submit" class="btn btn-danger" (click)="removeEntry()">Usuń</button></th>
     </tr>
-
-    <h3>Lista rozliczeń: </h3>
-    <ul style="list-style-type:disc">
-      <li *ngFor="let e of entries">
-        {{ e.settelment_name }} {{e.settelment_amount}}
-      </li>
-    </ul>

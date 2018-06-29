@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SettlementComponent } from './settlement/settlement.component';
 import { SettlementItemComponent } from './settlement/settlement-item/settlement-item.component';
+import { SettlementNewItemComponent } from './settlement/settlement-new-item/settlement-new-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SettlementComponent,
-    SettlementItemComponent
+    SettlementItemComponent,
+    SettlementNewItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SettlementItem} from "./settlement-item";
 
 @Component({
   selector: 'app-settlement',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class SettlementComponent implements OnInit {
 
   constructor() { }
+
+   entries = [] as SettlementItem[];
 
   ngOnInit() {
   }
