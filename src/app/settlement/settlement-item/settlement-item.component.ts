@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { SettlementItem }    from '../settlement-item';
+import { SettlementService } from "../services/settlement-service.service";
 
 @Component({
   selector: 'settlement-item',
@@ -8,6 +9,8 @@ import { SettlementItem }    from '../settlement-item';
   styleUrls: ['./settlement-item.component.css']
 })
 export class SettlementItemComponent implements OnInit {
+
+  constructor(private service:SettlementService){}
 
   @Input() entry: SettlementItem
 
@@ -17,7 +20,10 @@ export class SettlementItemComponent implements OnInit {
 
   calculateSaldo(){return 42}
 
-  removeEntry(){console.log("Remove")}
+  removeEntry(id:number){
+    console.log("Remove" + id)
+    this.service.deleteSetllement(id)
+  }
 
   ngOnInit() {
   }

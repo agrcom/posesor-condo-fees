@@ -20,7 +20,6 @@ export class SettlementNewItemComponent implements OnInit {
   "Nadpłata"];
 
    addEntry(value: SettlementItem) {
-     debugger;
      console.log(value);
 
     this.service.addSettlement(new SettlementItem(this.service.entries.length +1,value.settelment_name,
@@ -28,6 +27,5 @@ export class SettlementNewItemComponent implements OnInit {
    }
 
   ngOnInit() {  }
-
   
 }

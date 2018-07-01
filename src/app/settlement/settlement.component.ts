@@ -15,8 +15,7 @@ export class SettlementComponent implements OnInit {
   constructor(private entriesService:SettlementService) { }
    
   ngOnInit() {
-    this.entries = this.entriesService.getEntries()
-    
+    this.entries = this.entriesService.getSettlements()
   }
 
 }

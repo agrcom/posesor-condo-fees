@@ -13,7 +13,7 @@ export class SettlementService {
 
   entries = [] as SettlementItem[];
 
-  getEntries(): SettlementItem[]{
+  getSettlements(): SettlementItem[]{
     this.entries.push(this.mock1)
     this.entries.push(this.mock2)
 
@@ -21,7 +21,12 @@ export class SettlementService {
   }
 
   addSettlement(newEntry: SettlementItem){
-    this.entries.push(newEntry)
+    this.entries.unshift(newEntry)
   }
 
+  deleteSetllement(id:number){
+    debugger
+    let filtered = this.entries.filter(e => e.id !== id)
+    this.entries = filtered
+  }
 }
