@@ -1,50 +1,34 @@
-  <!-- <table style="width:80%" class="form-group"> -->
+<div class="row">
+  <div class="col-md-2">
+      <div class="form-group">
+      <label for="settelment_name">Nazwa obciążenia</label>
+      <select class="form-control" [(ngModel)]="entry.settelment_name" name="settelment_name">
+        <option *ngFor="let type of types" [value]="type">{{type}}</option>
+      </select>
+      </div>
+  </div>
 
-    <!-- <div class="form-group">
-      <label for="settelment_amount">Kwota</label>
-      <input type="number" class="form-control"
-      required
-      [(ngModel)]="entry" name = "entryName" >
-    </div>
+  <div class="col-md-2">
+     <label for="settelment_amount">Kwota</label>
+     <input #amount type="number" class="form-control" id="settelment_amount"
+     required
+     [(ngModel)]="entry.settelment_amount" name = "settelment_amount" >
+  </div>
 
-<button type="submit" class="btn btn-success" (click)="addEntry(entry)">Dodaj</button>
+  <div class="col-md-2">
+     <label for="settelment_date">Data</label>
+     <input type="date" [(ngModel)]="entry.settelment_date" class="form-control" id="settelment_date">
+  </div>
 
-this: {{entry}}   -->
+  <div class="col-md-2">
+     <label for="settelment_intrest">Stan Płatności/Saldo</label>
+     <input type="number" class="form-control" value="calculateSaldo()"
+     id="settelment_saldo_input" readonly>
+  </div>
 
-
-     <tr>
-      <th>
-        <div class="form-group">
-          <label for="settelment_name">Nazwa obciążenia</label>
-          <select class="form-control" [(ngModel)]="entry.settelment_name" name="settelment_name">
-            <option *ngFor="let type of types" [value]="type">{{type}}</option>
-          </select>
-        </div>
-      </th>
-
-      <th>
-         <div class="form-group">
-          <label for="settelment_amount">Kwota</label>
-          <input #amount type="number" class="form-control" id="settelment_amount"
-          required
-          [(ngModel)]="entry.settelment_amount" name = "settelment_amount" >
-        </div>
-      </th>
-
-      <th>
-        <div class="form-group">
-         <label for="settelment_date">Data</label>
-         <input type="date" [(ngModel)]="entry.settelment_date" class="form-control" id="settelment_date">
-       </div>
-      </th>
-
-      <th>
-        <div class="form-group">
-         <label for="settelment_intrest">Odsetki</label>
-         <input #intrest type="number" [(ngModel)]="entry.settelment_intrest" class="form-control" id="settelment_intrest_input">
-       </div>
-      </th>
-
-      <th><br><button type="submit" class="btn btn-success" (click)="addEntry(entry)">Dodaj</button></th>
-      <th><br><button type="submit" class="btn btn-danger" (click)="removeEntry()">Usuń</button></th>
-    </tr>
+  <div class="col-md-1">
+    <br>
+        <button type="submit" class="btn btn-danger"  style="padding-bottom: 0px"
+        (click)="removeEntry()">Usuń</button>
+  </div>
+</div>

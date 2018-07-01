@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { SettlementServiceService } from './settlement-service.service';
+import { SettlementService } from './settlement-service.service';
 
 describe('SettlementServiceService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [SettlementServiceService]
+      providers: [SettlementService]
     });
   });
 
-  it('should be created', inject([SettlementServiceService], (service: SettlementServiceService) => {
+  it('should be created', inject([SettlementService], (service: SettlementService) => {
     expect(service).toBeTruthy();
   }));
 });

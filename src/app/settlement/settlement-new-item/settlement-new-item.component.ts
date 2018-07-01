@@ -1,15 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+import { SettlementItem }    from '../settlement-item';
+import { SettlementService } from "../services/settlement-service.service";
 
 @Component({
-  selector: 'app-settlement-new-item',
+  selector: 'settlement-new-item',
   templateUrl: './settlement-new-item.component.html',
   styleUrls: ['./settlement-new-item.component.css']
 })
+
 export class SettlementNewItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:SettlementService){}
 
-  ngOnInit() {
-  }
+  entry = new SettlementItem( 0,'Obciążenie', 0, new Date(), 0)
 
+  types= [  "Obciążenie",
+  "Płatność",
+  "Nadpłata"];
+
+   addEntry(value: SettlementItem) {
+     debugger;
+     console.log(value);
+
+    this.service.addSettlement(new SettlementItem(this.service.entries.length +1,value.settelment_name,
+       value.settelment_amount, value.settelment_date, value.settelment_intrest))
+   }
+
+  ngOnInit() {  }
+
+  
 }

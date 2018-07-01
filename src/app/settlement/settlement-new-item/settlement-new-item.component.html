@@ -1,3 +1,36 @@
-<p>
-  settlement-new-item works!
-</p>
+   <tr>
+    <th>
+      <div class="form-group">
+        <label for="settelment_name">Nazwa obciążenia</label>
+        <select class="form-control" [(ngModel)]="entry.settelment_name" name="settelment_name">
+          <option *ngFor="let type of types" [value]="type">{{type}}</option>
+        </select>
+      </div>
+    </th>
+
+    <th>
+       <div class="form-group">
+        <label for="settelment_amount">Kwota</label>
+        <input #amount type="number" class="form-control" id="settelment_amount"
+        required
+        [(ngModel)]="entry.settelment_amount" name = "settelment_amount" >
+      </div>
+    </th>
+
+    <th>
+      <div class="form-group">
+       <label for="settelment_date">Data</label>
+       <input type="date" [(ngModel)]="entry.settelment_date" class="form-control" id="settelment_date">
+     </div>
+    </th>
+
+    <th>
+      <div class="form-group">
+       <label for="settelment_intrest">Odsetki</label>
+       <input #intrest type="number" [(ngModel)]="entry.settelment_intrest" class="form-control" id="settelment_intrest_input">
+     </div>
+    </th>
+
+    <th><br><button type="submit" class="btn btn-success" (click)="addEntry(entry)">Dodaj</button></th>
+    <th><br><button type="submit" class="btn btn-danger" (click)="removeEntry()">Usuń</button></th>
+  </tr>
