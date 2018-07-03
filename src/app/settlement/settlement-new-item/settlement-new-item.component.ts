@@ -20,9 +20,7 @@ export class SettlementNewItemComponent implements OnInit {
   "Nadpłata"];
 
    addEntry(value: SettlementItem) {
-     console.log(value);
-
-    this.service.addSettlement(new SettlementItem(this.service.entries.length +1,value.settelment_name,
+    this.service.addSettlement(new SettlementItem(this.service.getNewId(),value.settelment_name,
        value.settelment_amount, value.settelment_date, value.settelment_intrest))
    }
 

@@ -7,5 +7,6 @@ export class SettlementItem {
     public settelment_amount: number,
     public settelment_date: Date,
     public settelment_intrest?: number,
+    public settlement_balance?: number,
   ){}
 }
