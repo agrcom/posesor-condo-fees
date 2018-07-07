@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { SettlementItem }    from '../settlement-item';
-import { SettlementService } from "../services/settlement-service.service";
+import { SettlementItem, Settelment_Types } from '../settlement-item';
+import { SettlementService } from '../services/settlement-service.service';
 
 @Component({
   selector: 'settlement-item',
@@ -10,23 +11,33 @@ import { SettlementService } from "../services/settlement-service.service";
 })
 export class SettlementItemComponent implements OnInit {
 
-  constructor(private service:SettlementService){}
+  constructor(private service: SettlementService, private fb: FormBuilder) { }
 
-  @Input() entry: SettlementItem
+  settlementItemForm: FormGroup;
+  types = Settelment_Types;
 
-  types= [  "Obciążenie",
- "Płatność",
- "Nadpłata"];
+  @Input() entry: SettlementItem;
 
-  calculateSaldo(){return 42}
+  calculateBalance() { return 42; }
 
-  removeEntry(id:number){
-    console.log("Remove" + id)
-    this.service.deleteSetllement(id)
+  removeEntry(id: number) {
+    console.log('Remove ' + id);
+    this.service.deleteSetllement(id);
+  }
+
+  save() { console.log('Save() method triggered'); }
+
+  createForm() {
+    this.settlementItemForm = this.fb.group({
+      id: this.entry.id,
+      settelmentName: this.entry.settelmentName,
+      settelmentAmount: this.entry.settelmentAmount,
+      settelmentDate: this.entry.settelmentDate,
+      settelmentIntrest: this.entry.settelmentIntrest,
+    });
   }
 
   ngOnInit() {
+    this.createForm();
   }
-
-//  get diagnostic() { return JSON.stringify(this.entry); }
 }

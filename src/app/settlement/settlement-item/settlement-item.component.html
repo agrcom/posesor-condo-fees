@@ -1,34 +1,36 @@
-<div class="row">
-  <div class="col-md-2">
-      <div class="form-group">
-      <label for="settelment_name">Nazwa obciążenia</label>
-      <select class="form-control" [(ngModel)]="entry.settelment_name" name="settelment_name">
+<form [formGroup]="settlementItemForm">
+  <div class="row">
+
+    <div class="form-group col-md-2">
+      <label for="settelmentName">Nazwa obciążenia</label>
+      <select class="form-control" 
+      formControlName="settelmentName">
         <option *ngFor="let type of types" [value]="type">{{type}}</option>
       </select>
-      </div>
-  </div>
+    </div>
 
-  <div class="col-md-2">
-     <label for="settelment_amount">Kwota</label>
-     <input #amount type="number" class="form-control" id="settelment_amount"
-     required
-     [(ngModel)]="entry.settelment_amount" name = "settelment_amount" >
-  </div>
+    <div class="form-group col-md-2">
+      <label for="settelmentAmount">Kwota</label>
+      <input type="number" class="form-control" 
+      formControlName="settelmentAmount">
+    </div>
 
-  <div class="col-md-2">
-     <label for="settelment_date">Data</label>
-     <input type="date" [(ngModel)]="entry.settelment_date" class="form-control" id="settelment_date">
-  </div>
+    <div class="form-group col-md-2">
+      <label for="settelment_date">Data</label>
+      <input type="date" class="form-control"
+      formControlName="settelmentDate">
+    </div>
 
-  <div class="col-md-2">
-     <label for="settelment_intrest">Stan Płatności/Saldo</label>
-     <input type="number" class="form-control" value="calculateSaldo()"
-     id="settelment_saldo_input" readonly>
-  </div>
+    <div class="form-group col-md-2">
+      <label for="settelmentBalance">Stan Płatności/Saldo</label>
+      <input type="number" class="form-control" [value]="calculateBalance()" readonly>
+    </div>
 
-  <div class="col-md-1">
-    <br>
-        <button type="submit" class="btn btn-danger"  style="padding-bottom: 0px"
-        (click)="removeEntry(entry.id)">Usuń</button>
+    <div class="form-group col-md-1">
+      <br>
+      <button type="submit" class="btn btn-danger" style="padding-bottom: 0px" (click)="removeEntry(entry.id)">Usuń</button>
+    </div>
+
   </div>
-</div>
+  <p>Form status: {{ settlementItemForm.value | json }}</p>
+</form>

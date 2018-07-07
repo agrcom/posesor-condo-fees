@@ -3,10 +3,12 @@ export class SettlementItem {
 // Model for single settlement entry
   constructor(
     public id: number,
-    public settelment_name: string,
-    public settelment_amount: number,
-    public settelment_date: Date,
-    public settelment_intrest?: number,
-    public settlement_balance?: number,
+    public settelmentName: string,
+    public settelmentAmount: number,
+    public settelmentDate: Date,
+    public settelmentIntrest?: number,
+    public settlementBalance?: number,
   ){}
 }
+
+export const Settelment_Types = [ 'Obciążenie', 'Płatność', 'Nadpłata'];

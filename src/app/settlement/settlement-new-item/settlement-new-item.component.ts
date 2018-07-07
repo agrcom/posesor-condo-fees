@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { SettlementItem }    from '../settlement-item';
-import { SettlementService } from "../services/settlement-service.service";
+import { SettlementItem, Settelment_Types } from '../settlement-item';
+import { SettlementService } from '../services/settlement-service.service';
 
 @Component({
   selector: 'settlement-new-item',
@@ -11,19 +12,33 @@ import { SettlementService } from "../services/settlement-service.service";
 
 export class SettlementNewItemComponent implements OnInit {
 
-  constructor(private service:SettlementService){}
+  constructor(private service: SettlementService, private fb: FormBuilder) { }
 
-  entry = new SettlementItem( 0,'Obciążenie', 0, new Date(), 0)
+  settlementNewItemForm: FormGroup;
+  types = Settelment_Types;
 
-  types= [  "Obciążenie",
-  "Płatność",
-  "Nadpłata"];
+  addEntry() {
+    this.service.addSettlement(new SettlementItem(
+      this.service.getNewId(),
+      this.settlementNewItemForm.get('settelmentName').value,
+      this.settlementNewItemForm.get('settelmentAmount').value,
+      this.settlementNewItemForm.get('settelmentDate').value,
+      this.settlementNewItemForm.get('settelmentIntrest').value
+    ));
+  }
 
-   addEntry(value: SettlementItem) {
-    this.service.addSettlement(new SettlementItem(this.service.getNewId(),value.settelment_name,
-       value.settelment_amount, value.settelment_date, value.settelment_intrest))
-   }
+  createForm() {
+    this.settlementNewItemForm = this.fb.group({
+      id: '',
+      settelmentName: '',
+      settelmentAmount: '0',
+      settelmentDate: '',
+      settelmentIntrest: '0',
+    });
+  }
 
-  ngOnInit() {  }
-  
+  ngOnInit() {
+    this.createForm();
+  }
+
 }

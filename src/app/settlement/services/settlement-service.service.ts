@@ -15,8 +15,8 @@ export class SettlementService {
   entries = [] as SettlementItem[];
 
   getSettlements(): SettlementItem[]{
-    this.entries.push(this.mock1)
-    this.entries.push(this.mock2)
+    // this.entries.push(this.mock1)
+    // this.entries.push(this.mock2)
 
     return this.entries
   }
