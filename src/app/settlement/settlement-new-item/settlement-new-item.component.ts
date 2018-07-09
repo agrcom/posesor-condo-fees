@@ -30,7 +30,7 @@ export class SettlementNewItemComponent implements OnInit {
   createForm() {
     this.settlementNewItemForm = this.fb.group({
       id: '',
-      settelmentName: '',
+      settelmentName: this.types[0],
       settelmentAmount: '0',
       settelmentDate: '',
       settelmentIntrest: '0',

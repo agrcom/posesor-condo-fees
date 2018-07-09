@@ -4,7 +4,7 @@
 
     <div class="form-group col-md-2">
       <label for="settelmentName">Nazwa obciążenia</label>
-      <select class="form-control" formControlName="settelmentName">
+      <select class="form-control" formControlName="settelmentName" Placeholder="Wybierz">
         <option *ngFor="let type of types" [value]="type">{{type}}</option>
       </select>
     </div>

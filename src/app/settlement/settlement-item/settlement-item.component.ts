@@ -18,11 +18,13 @@ export class SettlementItemComponent implements OnInit {
 
   @Input() entry: SettlementItem;
 
-  calculateBalance() { return 42; }
+  calculateBalance() { return this.entry.settelmentAmount; }
 
   removeEntry(id: number) {
     console.log('Remove ' + id);
     this.service.deleteSetllement(id);
+
+    this.settlementItemForm.updateValueAndValidity();
   }
 
   save() { console.log('Save() method triggered'); }

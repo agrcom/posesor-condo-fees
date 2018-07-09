@@ -11,4 +11,4 @@ export class SettlementItem {
   ){}
 }
 
-export const Settelment_Types = [ 'Obciążenie', 'Płatność', 'Nadpłata'];
+export const Settelment_Types = [ 'Obciążenie', 'Płatność', 'Korekta'];

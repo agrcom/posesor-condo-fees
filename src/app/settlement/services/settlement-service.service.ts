@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+
 import { SettlementItem } from "../settlement-item";
 
 @Injectable()
@@ -6,32 +8,31 @@ export class SettlementService {
 
   constructor() { }
 
-  Id:number = 0;
-  date1 = new Date("2018-06-30")
-
-  mock1 = new SettlementItem( 99,'Obciążenie', 10, new Date("2018-06-29"), 0);
-  mock2 = new SettlementItem( 98,'Płatność', 20, this.date1, 1);
+  Id: number = 0;
 
   entries = [] as SettlementItem[];
 
-  getSettlements(): SettlementItem[]{
-    // this.entries.push(this.mock1)
-    // this.entries.push(this.mock2)
-
-    return this.entries
+  getSettlements(): Observable<SettlementItem[]> {
+    return of(this.entries)
   }
 
-  addSettlement(newEntry: SettlementItem){
+  addSettlement(newEntry: SettlementItem) {
     this.entries.unshift(newEntry)
   }
 
-  deleteSetllement(id:number){
+  getPreviousSettlement(currentEntry: SettlementItem): SettlementItem {
+    var index = this.entries.indexOf(currentEntry);
+    if (index != 0) return this.entries[index - 1];
+    else return null;
+  }
+
+  deleteSetllement(id: number) {
     debugger
     let filtered = this.entries.filter(e => e.id !== id)
     this.entries = filtered
   }
 
-  getNewId(): number{
+  getNewId(): number {
     this.Id = this.Id + 1
     return this.Id
   }

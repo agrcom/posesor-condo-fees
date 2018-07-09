@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { Observable }        from 'rxjs';
 
 import {SettlementItem} from "./settlement-item";
 import {SettlementService} from './services/settlement-service.service' 
@@ -11,16 +12,18 @@ import {SettlementService} from './services/settlement-service.service'
 })
 export class SettlementComponent implements OnInit {
   
-  entries = [] as SettlementItem[];
+  entries: Observable<SettlementItem[]>;
 
   settlementMain = new FormGroup({});
 
   constructor(private entriesService:SettlementService) { }
    
   ngOnInit() {
+    this.getEntries();
+  }
+
+  getEntries(){
     this.entries = this.entriesService.getSettlements()
-
-
   }
 
 }
