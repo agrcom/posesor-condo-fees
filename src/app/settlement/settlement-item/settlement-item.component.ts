@@ -34,7 +34,7 @@ export class SettlementItemComponent implements OnInit {
       id: this.entry.id,
       settelmentName: this.entry.settelmentName,
       settelmentAmount: this.entry.settelmentAmount,
-      settelmentDate: this.entry.settelmentDate,
+      settelmentDate: this.entry.settelmentDate.getDate()+"-" +(this.entry.settelmentDate.getMonth()+1)+"-" +this.entry.settelmentDate.getFullYear(),
       settelmentIntrest: this.entry.settelmentIntrest,
     });
   }

@@ -9,13 +9,15 @@ import { SettlementComponent } from './settlement/settlement.component';
 import { SettlementItemComponent } from './settlement/settlement-item/settlement-item.component';
 import { SettlementNewItemComponent } from './settlement/settlement-new-item/settlement-new-item.component';
 import {SettlementService} from './settlement/services/settlement-service.service' 
+import { FastTextComponent } from './settlement/fast-text/fast-text.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SettlementComponent,
     SettlementItemComponent,
-    SettlementNewItemComponent
+    SettlementNewItemComponent,
+    FastTextComponent
   ],
   imports: [
     BrowserModule,

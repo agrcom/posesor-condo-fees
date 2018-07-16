@@ -4,6 +4,7 @@ import { Observable }        from 'rxjs';
 
 import {SettlementItem} from "./settlement-item";
 import {SettlementService} from './services/settlement-service.service' 
+import {FastTextComponent} from "./fast-text/fast-text.component";
 
 @Component({
   selector: 'app-settlement',

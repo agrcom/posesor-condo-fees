@@ -25,6 +25,7 @@ export class SettlementNewItemComponent implements OnInit {
       this.settlementNewItemForm.get('settelmentDate').value,
       this.settlementNewItemForm.get('settelmentIntrest').value
     ));
+    console.log(this.settlementNewItemForm.get('settelmentDate').value)
   }
 
   createForm() {

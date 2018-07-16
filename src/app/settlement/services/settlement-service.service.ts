@@ -13,6 +13,7 @@ export class SettlementService {
   entries = [] as SettlementItem[];
 
   getSettlements(): Observable<SettlementItem[]> {
+    this.entries.push(new SettlementItem(99,"Płatność", 10, new Date("2019-03-12"),2,0));
     return of(this.entries)
   }
 
@@ -27,7 +28,6 @@ export class SettlementService {
   }
 
   deleteSetllement(id: number) {
-    debugger
     let filtered = this.entries.filter(e => e.id !== id)
     this.entries = filtered
   }
