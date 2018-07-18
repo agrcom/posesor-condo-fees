@@ -18,17 +18,16 @@ export class SettlementItemComponent implements OnInit {
 
   @Input() entry: SettlementItem;
 
-  calculateBalance() { return this.entry.settelmentAmount; }
-
+  
   removeEntry(id: number) {
     console.log('Remove ' + id);
     this.service.deleteSetllement(id);
-
+    
     this.settlementItemForm.updateValueAndValidity();
   }
 
   save() { console.log('Save() method triggered'); }
-
+  
   createForm() {
     this.settlementItemForm = this.fb.group({
       id: this.entry.id,
@@ -36,6 +35,7 @@ export class SettlementItemComponent implements OnInit {
       settelmentAmount: this.entry.settelmentAmount,
       settelmentDate: this.entry.settelmentDate.getDate()+"-" +(this.entry.settelmentDate.getMonth()+1)+"-" +this.entry.settelmentDate.getFullYear(),
       settelmentIntrest: this.entry.settelmentIntrest,
+      settelmentBalance: this.entry.settlementBalance
     });
   }
 

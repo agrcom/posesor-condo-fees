@@ -1,18 +1,19 @@
 <div class="container">
-<form [formGroup]="settlementMain">
+  <form [formGroup]="settlementMain">
 
 
-  <settlement-new-item></settlement-new-item>
-  <br>
-  <h4>Fast Text POC</h4>
-  <app-fast-text></app-fast-text>
+    <!-- <settlement-new-item></settlement-new-item> -->
+    <br>
+    <h4>Fast Text POC</h4>
+    <app-fast-text></app-fast-text>
 
-  <h3>Lista rozliczeń: </h3>
-  <ul style="list-style-type:none">
-    <li *ngFor="let entry of entries |async">
-      <settlement-item [entry]="entry"></settlement-item>
-    </li>
-  </ul>
+    <h3>Lista rozliczeń: </h3>
 
-</form>
+    <ul style="list-style-type:none">
+      <li *ngFor="let entry of entries |async">
+        <settlement-item [entry]="entry"></settlement-item>
+      </li>
+    </ul>
+
+  </form>
 </div>
