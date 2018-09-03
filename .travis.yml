@@ -32,6 +32,15 @@ script:
 
 deploy:
   provider: s3
-  access_key_id: "AKIAISHMKOUUHRNJ4ZPA"
-  secret_access_key: "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"
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
   bucket: "posesor-condo-fees-poc"
+  skip_cleanup: true
+  local_dir: build
+  # Set the Cache-Control header.
+  cache_control: "max-age=21600"
+after_deploy:
+  # Allow `awscli` to make requests to CloudFront.
+  - aws configure set preview.cloudfront true
+  # Invalidate every object in the targeted distribution.
+  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
