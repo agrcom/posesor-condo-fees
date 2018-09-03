@@ -29,3 +29,9 @@ script:
   # - ng e2e
 
 - ng build --prod
+
+deploy:
+  provider: s3
+  access_key_id: "AKIAISHMKOUUHRNJ4ZPA"
+  secret_access_key: "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"
+  bucket: "posesor-condo-fees-poc"
