@@ -28,7 +28,7 @@ script:
   # - sleep 60 # waits for services
   # - ng e2e
 
-- ng build --prod
+- ng build --prod --aot
 
 deploy:
   provider: s3
