@@ -30,10 +30,22 @@ script:
 
 - ng build --prod --aot
 
+# deploy:
+#   provider: s3
+#   access_key_id: $AWS_ACCESS_KEY_ID
+#   secret_access_key: $AWS_SECRET_ACCESS_KEY
+#   bucket: "posesor-condo-fees-poc"
+#   region: $AWS_DEFAULT_REGION
+  # skip_cleanup: true
+
+#API key from gcs :AIzaSyAixlrHgh7hpCAWBbBTQ19xDuUXTYSfYyk
+
+# 
+#
 deploy:
-  provider: s3
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: "posesor-condo-fees-poc"
-  region: $AWS_DEFAULT_REGION
+  provider: gcs
+  access_key_id: $GCS_ACCESS_KEY_ID
+  secret_access_key: $GCS_SECRET_ACCESS_KEY
+  bucket: "posesor-bucket"
   skip_cleanup: true
+  acl: public-read
